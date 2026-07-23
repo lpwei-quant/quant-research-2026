@@ -1,0 +1,13 @@
+import pandas as pd
+df = pd.read_csv("data/csi300_daily.csv")
+df["date"] = pd.to_datetime(df["date"])
+print(type(df))
+print(df.shape)
+print(df.columns)
+print(df.dtypes)
+print("最早日期",df["date"].min())
+print("最晚日期",df["date"].max())
+print(df.head(3))
+print(df.tail(3))
+print(df.isna().sum())
+print(df.head(3))
