@@ -1,4 +1,8 @@
+# 直接依赖(传递依赖由 pip 自动解析)
+# 选择手写而非 pip freeze:依赖表面积小,仅使用核心 API,便于维护
+# 若后续引入 ML 库,需改为锁定全量依赖
+
 akshare==1.18.64
+pandas==3.0.3
 numpy==2.4.6
 matplotlib==3.11.1
-pandas==3.0.3
