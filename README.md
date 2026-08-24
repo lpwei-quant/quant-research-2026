@@ -1,5 +1,7 @@
 # 沪深300收益率、净值与极端行情分析
 
+[![CI](https://github.com/lpwei-quant/quant-research-2026/actions/workflows/ci.yml/badge.svg)](https://github.com/lpwei-quant/quant-research-2026/actions/workflows/ci.yml)
+
 基于沪深300价格指数（000300）2023-07-24至2026-07-22的726个交易日数据，构建一条可复现的分析流程：数据获取与质量检查、收益率计算、双路径净值校验、极端交易日识别和事件窗口归因。
 
 ![沪深300标准化净值曲线](output/figures/csi300_nav_curve.png)
@@ -44,6 +46,10 @@ quant-research-2026/
 ├── src/
 │   ├── day02_return_analysis.py     # 收益率、净值、年化收益和回撤
 │   └── m02_extreme_days.py          # 极端交易日与事件窗口分析
+├── tests/
+│   └── test_analysis.py             # 核心计算与数据质量回归测试
+├── .github/workflows/
+│   └── ci.yml                       # GitHub Actions 自动检查
 ├── output/
 │   └── figures/
 │       └── csi300_nav_curve.png
@@ -68,6 +74,14 @@ quant-research-2026/
 2. 分别通过简单收益率和对数收益率构造净值并交叉验证。
 3. 输出累计收益、年化收益、年化波动率和最大回撤。
 4. 保存最大涨跌交易日及2024年9月至10月事件窗口明细。
+
+## 自动化测试
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+测试使用合成行情，不依赖外部数据接口，覆盖数据质量校验、简单收益率与对数收益率净值交叉验证，以及事件窗口计算和结果文件生成。GitHub Actions会在每次提交和拉取请求时自动执行这些检查。
 
 ## 局限
 
