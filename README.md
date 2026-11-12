@@ -2,6 +2,8 @@
 
 基于沪深300指数（000300）2023-07-24 至 2026-07-22 共 726 个交易日数据，构建收益率计算、净值重构与极值归因分析流程。
 
+> 这是我学习量化研究时的第一个练习项目（2026 年暑假），保留了当时逐步提交的记录。后续更完整的研究见 [A 股量价因子研究](https://github.com/lpwei-quant/a-share-factor-research)。
+
 ## 核心发现
 
 - 三年累计收益 **+23.97%**（期末净值 1.2397），年化约 7.4%
@@ -43,8 +45,8 @@ pip install -r requirements.txt
 
 python fetch_csi300.py            # 获取数据（data/ 未纳入版本控制）
 python inspect_csi300.py          # 数据类型、缺失值、重复日期与时间顺序检查
-python src/day02_return_analysis.py
-python m02_extreme_days.py
+python src/return_analysis.py
+python extreme_days.py
 ```
 
 ## 目录结构
@@ -53,8 +55,8 @@ python m02_extreme_days.py
 quant-research-2026/
 ├── fetch_csi300.py               # 数据获取
 ├── inspect_csi300.py             # 数据检查
-├── src/day02_return_analysis.py  # 收益率与净值构造
-├── m02_extreme_days.py           # 极值归因
+├── src/return_analysis.py  # 收益率与净值构造
+├── extreme_days.py           # 极值归因
 ├── output/figures/               # 图表输出
 └── requirements.txt
 ```
